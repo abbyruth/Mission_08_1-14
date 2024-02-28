@@ -6,6 +6,8 @@ namespace Mission_08_1_14.Controllers
 {
     public class HomeController : Controller
     {
+        private ITaskListRepository _repo;
+        public HomeController(ITaskListRepository temp) => _repo = temp;
 
         public IActionResult Index()
         {
