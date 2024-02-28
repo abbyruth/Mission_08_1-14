@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<TaskListContext>(options => { // Connect to our database file
-    options.UseSqlite(builder.Configuration["ConnectionStrings:TasksList"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:TaskConnection"]);
 });
 
 builder.Services.AddScoped<ITaskListRepository, EFTaskListRepository>(); // Give each request an instance of the repository/context
