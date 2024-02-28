@@ -4,7 +4,7 @@ namespace Mission_08_1_14.Models {
     public class TaskListContext : DbContext {
         public TaskListContext(DbContextOptions<TaskListContext> options) : base(options) { }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskItem> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         // Default options: Home, School, Work, Church

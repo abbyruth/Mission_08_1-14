@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_08_1_14.Models;
 using System.Diagnostics;
 
@@ -12,6 +13,15 @@ namespace Mission_08_1_14.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult DbTest() {
+            var records = _repo.Tasks
+                .Include("Category") // Include the table "Category" in our results (to get the CategoryName to display)
+                .ToList();
+
+            return View(records); 
         }
     }
 

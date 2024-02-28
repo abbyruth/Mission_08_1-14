@@ -1,10 +1,10 @@
 ﻿namespace Mission_08_1_14.Models {
     public interface ITaskListRepository {
         // Task Methods
-        IQueryable<Task> Tasks { get; }
-        public void AddTask(Task task);
-        public void UpdateTask(Task task);
-        public void RemoveTask(Task task);
+        IQueryable<TaskItem> Tasks { get; }
+        public void AddTask(TaskItem task);
+        public void UpdateTask(TaskItem task);
+        public void RemoveTask(TaskItem task);
 
         // Category Methods
         IQueryable<Category> Categories { get; }

@@ -8,16 +8,16 @@ namespace Mission_08_1_14.Models {
 
 
         // Task Methods
-        public IQueryable<Task> Tasks => _taskListContext.Tasks;
-        public void AddTask(Task task) { 
+        public IQueryable<TaskItem> Tasks => _taskListContext.Tasks;
+        public void AddTask(TaskItem task) { 
             _taskListContext.Add(task); 
             _taskListContext.SaveChanges(); 
         }
-        public void UpdateTask(Task task) { 
+        public void UpdateTask(TaskItem task) { 
             _taskListContext.Update(task); 
             _taskListContext.SaveChanges(); 
         }
-        public void RemoveTask(Task task) { 
+        public void RemoveTask(TaskItem task) { 
             _taskListContext.Remove(task); 
             _taskListContext.SaveChanges(); 
         }
