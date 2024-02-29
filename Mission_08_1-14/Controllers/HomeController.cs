@@ -27,6 +27,35 @@ namespace Mission_08_1_14.Controllers
 
             return View(records); 
         }
+
+        
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var recordToDelete = _repo.Tasks.SingleOrDefault(x => x.TaskId == id);
+
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskItem t)
+        {
+            
+            var taskToDelete = _repo.Tasks.SingleOrDefault(x => x.TaskId == t.TaskId);
+
+            if (taskToDelete == null)
+            {
+                return NotFound(); // Or handle the case where the task is not found
+            }
+
+            if (ModelState.IsValid)
+            {
+                _repo.RemoveTask(taskToDelete);
+                return RedirectToAction("Index");
+            }
+
+            return View("Index");
+        }
     }
 
 }

@@ -16,11 +16,6 @@
         margin-bottom: 20px;
     }
 
-    li {
-        display: inline-block;
-        margin-right: 10px; /* Adjust the margin as needed */
-    }
-
     h1, h4 {
         color: #007BFF;
     }
@@ -35,53 +30,56 @@
                 <div class="col-6">
                     <h1>Urgent</h1>
                     <h4>Quadrant 1</h4>
-                    <table>
-                        <tbody>
-                            @foreach (var x in Model)
+                    <table align="center">
+                    <tbody >
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 1)
                             {
-                                <ul>
-                                    <li><p>@x.TaskId</p></li>
-                                    <li><p>@x.TaskDescription</p></li>
-                                    <li><p>@x.DueDate</p></li>
-                                    <li><p>@x.Quadrant</p></li>
-                                    <li>
-                                        <p>
-                                            @if (x.Category != null)
-                                            {
-                                                @x.Category.CategoryName
-                                            }
-                                        </p>
-                                    </li>
-                                    <li><p>@x.Completed</p></li>
-                                </ul>
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+                           
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
                             }
+                        }
+                        
 
-                        </tbody>
+                    </tbody>
                     </table>
                 </div>
 
                 <div class="col-6">
                     <h1>Not Urgent</h1>
                     <h4>Quadrant 2</h4>
-                <table>
+                <table align="center">
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            <ul>
-                                <li><p>@x.TaskId</p></li>
-                                <li><p>@x.TaskDescription</p></li>
-                                <li><p>@x.DueDate</p></li>
-                                <li><p>@x.Quadrant</p></li>
-                                <li>
-                                    <p>
+                            if (x.Quadrant == 2)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
                                         @if (x.Category != null)
                                         {
                                             @x.Category.CategoryName
                                         }
-                                    </p>
-                                </li>
-                                <li><p>@x.Completed</p></li>
-                            </ul>
+                                    </td>
+
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
                         }
 
                     </tbody>
@@ -93,21 +91,58 @@
                 
                 <div class="col-6">
                     <h4>Quadrant 3</h4>
-                    <ul>
-                        <li><p>Interruptions</p></li>
-                        <li><p>Some phone calls</p></li>
-                        <li><p>Some reports</p></li>
-                    </ul>
+                <table align="center">
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 3)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
                 </div>
 
                 <div class="col-6">
                     <h4>Quadrant 4</h4>
-                    <ul>
-                        <li><p>Busy work</p></li>
-                        <li><p>Some phone calls</p></li>
-                        
-                        <li><p>time wasters</p></li>
-                    </ul>
+                <table align="center">
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 4)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
                 </div>
 
             </div>
