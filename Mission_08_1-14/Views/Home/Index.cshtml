@@ -16,6 +16,11 @@
         margin-bottom: 20px;
     }
 
+    li {
+        display: inline-block;
+        margin-right: 10px; /* Adjust the margin as needed */
+    }
+
     h1, h4 {
         color: #007BFF;
     }
@@ -25,33 +30,13 @@
     
 
     <div class="row">
-
-        <div class="col-6">
-            <h1>Urgent</h1>
-            <h4>Quadrant 1</h4>
-            <ul>
-                <li><p>Crises</p></li>
-                <li><p>Pressing Problems</p></li>
-            </ul>
             
             <div class="row">
                 <div class="col-6">
                     <h1>Urgent</h1>
                     <h4>Quadrant 1</h4>
                     <table>
-                        <thead class="fw-bold">
-                            <tr>
-                                <td>Task Number</td>
-                                <td>Description</td>
-                                <td>Due Date</td>
-                                <td>Quadrant</td>
-                                <td>Category</td>
-                                <td>Completed?</td>
-                            </tr>
-                        </thead>
-
                         <tbody>
-
                             @foreach (var x in Model)
                             {
                                 <ul>
@@ -73,25 +58,35 @@
 
                         </tbody>
                     </table>
-                    
                 </div>
 
                 <div class="col-6">
                     <h1>Not Urgent</h1>
                     <h4>Quadrant 2</h4>
-                    <ul>
-                        <li><p>Relationships</p></li>
-                        <li><p>Planning</p></li>
-                        <li><p>Recreation</p></li>
-                    </ul>
+                <table>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <ul>
+                                <li><p>@x.TaskId</p></li>
+                                <li><p>@x.TaskDescription</p></li>
+                                <li><p>@x.DueDate</p></li>
+                                <li><p>@x.Quadrant</p></li>
+                                <li>
+                                    <p>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </p>
+                                </li>
+                                <li><p>@x.Completed</p></li>
+                            </ul>
+                        }
+
+                    </tbody>
+                </table>
                 </div>
-                
-
-            </div>
-
-            <div class="row">
-
-                
             </div>
 
             <div class="row">
@@ -110,17 +105,14 @@
                     <ul>
                         <li><p>Busy work</p></li>
                         <li><p>Some phone calls</p></li>
-                        <<<<<<< Updated upstream
+                        
                         <li><p>time wasters</p></li>
                     </ul>
                 </div>
 
             </div>
         </div>
-        
-        <li><p>Time wasters</p></li>
-        </ul>
     </div>
 </div>
-</div>
+
 
