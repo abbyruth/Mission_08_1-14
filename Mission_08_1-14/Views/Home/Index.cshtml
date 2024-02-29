@@ -1,6 +1,126 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<TaskItem>
+@{
+    ViewData["Title"] = "Tasks";
 }
-<!--Abby Harris, Payton Womack, Cody Nettesheim, Seth Brock 
+<!--Abby Harris, Payton Womack, Cody Nettesheim, Seth Brock
     Section 001 Group: 1-14
 -->
+<style>
+    .col-6 {
+        width: 50%;
+        padding: 20px;
+        border: 2px solid #007BFF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        text-align: center; /* Center text */
+        margin-bottom: 20px;
+    }
+
+    h1, h4 {
+        color: #007BFF;
+    }
+</style>
+
+<div class="container">
+    
+
+    <div class="row">
+
+        <div class="col-6">
+            <h1>Urgent</h1>
+            <h4>Quadrant 1</h4>
+            <ul>
+                <li><p>Crises</p></li>
+                <li><p>Pressing Problems</p></li>
+            </ul>
+            
+            <div class="row">
+                <div class="col-6">
+                    <h1>Urgent</h1>
+                    <h4>Quadrant 1</h4>
+                    <table>
+                        <thead class="fw-bold">
+                            <tr>
+                                <td>Task Number</td>
+                                <td>Description</td>
+                                <td>Due Date</td>
+                                <td>Quadrant</td>
+                                <td>Category</td>
+                                <td>Completed?</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var x in Model)
+                            {
+                                <ul>
+                                    <li><p>@x.TaskId</p></li>
+                                    <li><p>@x.TaskDescription</p></li>
+                                    <li><p>@x.DueDate</p></li>
+                                    <li><p>@x.Quadrant</p></li>
+                                    <li>
+                                        <p>
+                                            @if (x.Category != null)
+                                            {
+                                                @x.Category.CategoryName
+                                            }
+                                        </p>
+                                    </li>
+                                    <li><p>@x.Completed</p></li>
+                                </ul>
+                            }
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+
+                <div class="col-6">
+                    <h1>Not Urgent</h1>
+                    <h4>Quadrant 2</h4>
+                    <ul>
+                        <li><p>Relationships</p></li>
+                        <li><p>Planning</p></li>
+                        <li><p>Recreation</p></li>
+                    </ul>
+                </div>
+                
+
+            </div>
+
+            <div class="row">
+
+                
+            </div>
+
+            <div class="row">
+                
+                <div class="col-6">
+                    <h4>Quadrant 3</h4>
+                    <ul>
+                        <li><p>Interruptions</p></li>
+                        <li><p>Some phone calls</p></li>
+                        <li><p>Some reports</p></li>
+                    </ul>
+                </div>
+
+                <div class="col-6">
+                    <h4>Quadrant 4</h4>
+                    <ul>
+                        <li><p>Busy work</p></li>
+                        <li><p>Some phone calls</p></li>
+                        <<<<<<< Updated upstream
+                        <li><p>time wasters</p></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        
+        <li><p>Time wasters</p></li>
+        </ul>
+    </div>
+</div>
+</div>
+

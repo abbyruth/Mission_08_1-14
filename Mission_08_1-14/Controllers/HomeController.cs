@@ -12,7 +12,11 @@ namespace Mission_08_1_14.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var records = _repo.Tasks
+               .Include("Category") // Include the table "Category" in our results (to get the CategoryName to display)
+               .ToList();
+
+            return View(records);
         }
 
         [HttpGet]
