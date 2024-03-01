@@ -41,20 +41,13 @@ namespace Mission_08_1_14.Controllers
         public IActionResult Delete(TaskItem t)
         {
             
-            var taskToDelete = _repo.Tasks.SingleOrDefault(x => x.TaskId == t.TaskId);
+            // var taskToDelete = _repo.Tasks.SingleOrDefault(x => x.TaskId == t.TaskId);
+            
+             _repo.RemoveTask(t);
+             return RedirectToAction("Index");
+            
 
-            if (taskToDelete == null)
-            {
-                return NotFound(); // Or handle the case where the task is not found
-            }
-
-            if (ModelState.IsValid)
-            {
-                _repo.RemoveTask(taskToDelete);
-                return RedirectToAction("Index");
-            }
-
-            return View("Index");
+            //return View("Index");
         }
     }
 
