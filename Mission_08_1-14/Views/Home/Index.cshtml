@@ -19,6 +19,14 @@
     h1, h4 {
         color: #007BFF;
     }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding-right: 2px; /* Adjust this value to increase/decrease space */
+    }
 </style>
 
 <div class="container">
@@ -46,7 +54,7 @@
                                             @x.Category.CategoryName
                                         }
                                     </td>
-                           
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
                                     <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                 </tr>
                             }
@@ -76,7 +84,7 @@
                                             @x.Category.CategoryName
                                         }
                                     </td>
-
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
                                     <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                 </tr>
                             }
@@ -107,7 +115,7 @@
                                             @x.Category.CategoryName
                                         }
                                     </td>
-
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
                                     <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                 </tr>
                             }
@@ -135,7 +143,7 @@
                                             @x.Category.CategoryName
                                         }
                                     </td>
-
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
                                     <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                 </tr>
                             }

@@ -49,6 +49,44 @@ namespace Mission_08_1_14.Controllers
 
             //return View("Index");
         }
+
+        [HttpGet]
+        public IActionResult TaskAddEdit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var task = _repo.Tasks.SingleOrDefault(x => x.TaskId == id.Value);
+                if (task == null)
+                {
+                    return NotFound(); // Or handle the case when the task is not found
+                }
+
+                return View(task); // Pass the task item to the view to populate the form
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult TaskAddEdit(TaskItem t)
+        {
+            if (t.TaskId == null)
+            {
+                // Add new task
+                _repo.AddTask(t);
+            }
+            else
+            {
+                // Update existing task
+                _repo.UpdateTask(t);
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 
 }

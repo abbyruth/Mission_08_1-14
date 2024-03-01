@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 
 namespace Mission_08_1_14.Models {
-    public class EFTaskListRepository : ITaskListRepository {
+    public class EFTaskListRepository : ITaskListRepository
+    {
         private TaskListContext _taskListContext;
 
         public EFTaskListRepository(TaskListContext tempContext) => _taskListContext = tempContext;
