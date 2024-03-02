@@ -77,19 +77,29 @@ namespace Mission_08_1_14.Controllers
         [HttpPost]
         public IActionResult TaskAddEdit(TaskItem t)
         {
-            if (t.TaskId == null)
+            if (ModelState.IsValid) 
             {
-                // Add new task
-                _repo.AddTask(t);
+                if (t.TaskId == null)
+                {
+                    // Add new task
+                    _repo.AddTask(t);
+                }
+                else
+                {
+                    // Update existing task
+
+                    _repo.UpdateTask(t);
+                }
+                return RedirectToAction("Index");
             }
-            else
+            else 
             {
-                // Update existing task
-
-                _repo.UpdateTask(t);
+                var categories = _repo.Categories.ToList(); // Fetch categories from the database
+                ViewBag.Categories = categories;
+                return View(t);
             }
-
-            return RedirectToAction("Index");
+            
+           
         }
 
     }
