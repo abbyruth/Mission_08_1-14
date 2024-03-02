@@ -69,7 +69,7 @@ namespace Mission_08_1_14.Controllers
             {
                 var categories = _repo.Categories.ToList();
                 ViewBag.Categories = categories;
-                return View();
+                return View(new TaskItem());
             }
         }
 
