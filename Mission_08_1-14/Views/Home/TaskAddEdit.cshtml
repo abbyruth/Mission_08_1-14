@@ -27,20 +27,39 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Quadrant" class="control-label">Quadrant</label>
-            <input asp-for="Quadrant" class="form-control" type="number" placeholder="(1 - 4)"/>
+            <label asp-for="Quadrant" class="control-label">Quadrant</label><br />
+            <!--<input asp-for="Quadrant" class="form-control" type="number" placeholder="(1 - 4)"/>-->
+            <select asp-for="Quadrant">
+                <option value="" disabled selected>Select a Quadrant</option>
+                <option value="1">Urgent/Important (1)</option>
+                <option value="2">Not Urgent/Important (2)</option>
+                <option value="3">Urgent/Not Important (3)</option>
+                <option value="4">Not Urgent/Not Important (4)</option>
+            </select>
             <span asp-validation-for="Quadrant" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="CategoryId" class="control-label">Category</label>
-            <input asp-for="CategoryId" class="form-control" type="number" placeholder="(1 - 4)"/>
+            <label asp-for="CategoryId" class="control-label">Category</label><br />
+            <select asp-for="CategoryId">
+                <option value="" disabled selected>Select a Category</option>
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select><br />
+            <!--<input asp-for="CategoryId" class="form-control" type="number" placeholder="(1 - 4)"/>-->
             <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Completed" class="control-label">Completed</label>
-            <input asp-for="Completed" class="form-control" placeholder="True / False" />
+            <label asp-for="Completed" class="control-label">Completed</label><br />
+            <select asp-for="Completed">
+                <option value="" disabled selected>select yes/no</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <!--<input asp-for="Completed"  placeholder="True / False" />-->
             <span asp-validation-for="Completed" class="text-danger"></span>
         </div>
 

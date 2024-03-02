@@ -22,21 +22,26 @@
         </thead>
 
         <tbody>
-            @foreach (var x in Model) {
-                <tr>
-                    <td>@x.TaskId</td>
-                    <td>@x.TaskDescription</td>
-                    <td>@x.DueDate</td>
-                    <td>@x.Quadrant</td>
-                    <td>
-                        @if (x.Category != null) { // As long as we have a Category object assigned we want to show it. If not, leave it blank
-                            @x.Category.CategoryName
-                        }
-                    </td>
-                    <td>@x.Completed</td>
-                </tr>
+            @foreach (var x in Model)
+            {
+                    <tr>
+                        <td>@x.TaskId</td>
+                        <td>@x.TaskDescription</td>
+                        <td>@x.DueDate</td>
+                        <td>@x.Quadrant</td>
+                        <td>
+                            @if (x.Category != null)
+                            { // As long as we have a Category object assigned we want to show it. If not, leave it blank
+                                @x.Category.CategoryName
+                            }
+                        </td>
+                        <td>@x.Completed</td>
+                    </tr>
+
             }
         </tbody>
+
+
     </table>
 </div>
 

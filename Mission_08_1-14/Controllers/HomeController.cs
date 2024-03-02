@@ -61,10 +61,14 @@ namespace Mission_08_1_14.Controllers
                     return NotFound(); // Or handle the case when the task is not found
                 }
 
+                var categories = _repo.Categories.ToList(); // Fetch categories from the database
+                ViewBag.Categories = categories;
                 return View(task); // Pass the task item to the view to populate the form
             }
             else
             {
+                var categories = _repo.Categories.ToList();
+                ViewBag.Categories = categories;
                 return View();
             }
         }
@@ -81,6 +85,7 @@ namespace Mission_08_1_14.Controllers
             else
             {
                 // Update existing task
+
                 _repo.UpdateTask(t);
             }
 
