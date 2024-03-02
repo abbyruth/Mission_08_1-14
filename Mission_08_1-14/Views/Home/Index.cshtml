@@ -1,6 +1,161 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<TaskItem>
+@{
+    ViewData["Title"] = "Tasks";
 }
-<!--Abby Harris, Payton Womack, Cody Nettesheim, Seth Brock 
+<!--Abby Harris, Payton Womack, Cody Nettesheim, Seth Brock
     Section 001 Group: 1-14
 -->
+<style>
+    .col-6 {
+        width: 50%;
+        padding: 20px;
+        border: 2px solid #007BFF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        text-align: center; /* Center text */
+        margin-bottom: 20px;
+    }
+
+    h1, h4 {
+        color: #007BFF;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding-right: 2px; /* Adjust this value to increase/decrease space */
+    }
+</style>
+
+<div class="container">
+    
+
+    <div class="row">
+            
+            <div class="row">
+                <div class="col-6">
+                    <h1>Urgent</h1>
+                    <h4>Quadrant 1</h4>
+                    <table align="center">
+                    <tbody >
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 1)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+                        
+
+                    </tbody>
+                    </table>
+                </div>
+
+                <div class="col-6">
+                    <h1>Not Urgent</h1>
+                    <h4>Quadrant 2</h4>
+                <table align="center">
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 2)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-6">
+                    <h4>Quadrant 3</h4>
+                <table align="center">
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 3)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="col-6">
+                    <h4>Quadrant 4</h4>
+                <table align="center">
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Quadrant == 4)
+                            {
+                                <tr>
+                                    <td>@x.TaskId</td>
+                                    <td>@x.TaskDescription</td>
+                                    <td>@x.DueDate</td>
+                                    <td>
+                                        @if (x.Category != null)
+                                        {
+                                            @x.Category.CategoryName
+                                        }
+                                    </td>
+                                    <td><a class="btn btn-danger" style="color: black; background-color:cornflowerblue; border-color: cornflowerblue;" href="@Url.Action("TaskAddEdit", "Home", new { id = x.TaskId })">Update</a></td>
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
