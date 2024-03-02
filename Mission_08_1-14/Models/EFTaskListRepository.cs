@@ -4,9 +4,7 @@ namespace Mission_08_1_14.Models {
     public class EFTaskListRepository : ITaskListRepository
     {
         private TaskListContext _taskListContext;
-
-        public EFTaskListRepository(TaskListContext tempContext) => _taskListContext = tempContext;
-
+        public EFTaskListRepository(TaskListContext tempContext) => _taskListContext = tempContext; // Constructor
 
         // Task Methods
         public IQueryable<TaskItem> Tasks => _taskListContext.Tasks;

@@ -33,7 +33,6 @@
     
 
     <div class="row">
-            
             <div class="row">
                 <div class="col-6">
                     <h1>Quadrant 1</h1>
@@ -42,14 +41,13 @@
                     <tbody >
                         @foreach (var x in Model)
                         {
-                            if (x.Quadrant == 1)
+                            if (x.Quadrant == 1 && x.Completed == false) 
                             {
                                 <tr>
-                                    <td>@x.TaskId</td>
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
                                     <td>
-                                        @if (x.Category != null)
+                                        @if (x.Category != null && x.Completed == false) 
                                         {
                                             @x.Category.CategoryName
                                         }
@@ -72,10 +70,9 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.Quadrant == 2)
+                            if (x.Quadrant == 2 && x.Completed == false)
                             {
                                 <tr>
-                                    <td>@x.TaskId</td>
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
                                     <td>
@@ -96,7 +93,6 @@
             </div>
 
             <div class="row">
-                
                 <div class="col-6">
                     <h1>Quadrant 3</h1>
                     <h4>Urgent/Not Important</h4>
@@ -104,14 +100,13 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.Quadrant == 3)
+                            if (x.Quadrant == 3 && x.Completed == false) 
                             {
                                 <tr>
-                                    <td>@x.TaskId</td>
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
                                     <td>
-                                        @if (x.Category != null)
+                                        @if (x.Category != null) 
                                         {
                                             @x.Category.CategoryName
                                         }
@@ -133,10 +128,9 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.Quadrant == 4)
+                            if (x.Quadrant == 4 && x.Completed == false) 
                             {
                                 <tr>
-                                    <td>@x.TaskId</td>
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
                                     <td>
